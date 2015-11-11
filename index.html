@@ -565,7 +565,7 @@
             <div class="main">
                 <div class="article">
                     <div class="section video-sequence" data-audio="intro">
-                        <div class="video" data-video="EarthSlowNosun">
+                        <div class="video" data-video="EarthSlowNoSun">
                             <a class="navigation-marker" id="1"></a>
                             <div class="video-container">
                             </div>
@@ -588,14 +588,14 @@
                             <div class="video-caption video-caption--right">Now we’ve started to talk about ‘sustainable’. ‘Sustainable’ would be living on the energy of the sun as it comes to us year by year.</div>
                         </div>
 
-                        <div class="video" data-video="EarthSlowSun" data-animation>
+                        <div class="video" data-video="EarthSlowsun" data-animation>
                             <div class="video-container">
                                 <div class="video-source"></div>
                             </div>
                             <div class="video-caption video-caption--right">It’s a moral crisis, but a moral crisis unlike anything we’ve faced before. Because ultimately it doesn’t matter what any one person does. It’s the superorganism that is our remarkable species that needs to grow up.</div>
                         </div>
 
-                        <div class="video" data-video="EarthSlowNoSun" data-animation>
+                        <div class="video" data-video="EarthSlowNosun" data-animation>
                             <div class="video-container">
                                 <div class="video-source"></div>
                             </div>
@@ -607,7 +607,7 @@
 
                         <div class="video">
                             <div class="video-container">
-                                <img src="./assets/720/EarthSlowNoSun-poster.png">
+                                <img src="./assets/720/EarthSlowNosun-poster.png">
                             </div>
                             <div class="video-caption video-caption--center">3. But on the 21st of every month, spread the word:
                               <br> convince as many people as you can
@@ -910,69 +910,6 @@
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-
-
-        <!-- Page Styles -->
-        <link href="Style.css" rel="stylesheet" type="text/css"/>
-
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function(event) {
-
-            });
-        </script>
-
-        <script src="heatmap.min.js"></script>
-        <script>
-            window.onload = function() {
-                // create a heatmap instance
-                var heatmap = h337.create({
-                    container: document.getElementById('heatmapContainer'),
-                    maxOpacity: .1,
-                    radius: 50,
-                    blur: .90,
-                    // backgroundColor with alpha so you can see through it
-                    backgroundColor: 'rgba(0, 0, 0, 0)'
-                });
-                var heatmapContainer = document.getElementById('heatmapContainerWrapper');
-
-                heatmapContainer.onmousemove = heatmapContainer.ontouchmove = function(e) {
-                    // we need preventDefault for the touchmove
-                    e.preventDefault();
-                    var x = e.layerX;
-                    var y = e.layerY;
-                    if (e.touches) {
-                        x = e.touches[0].pageX;
-                        y = e.touches[0].pageY;
-                    }
-
-                    heatmap.addData({ x: x, y: y, value: 1 });
-
-                };
-
-                heatmapContainer.onclick = function(e) {
-                    var x = e.layerX;
-                    var y = e.layerY;
-                    heatmap.addData({ x: x, y: y, value: 1 });
-                };
-
-                console.log(heatmap.getDataURL());
-
-                function downloadURI(uri, name) {
-                    var link = document.createElement("a");
-                    link.download = name;
-                    link.href = uri;
-                    link.click();
-                }
-
-                window.onbeforeunload = function(e){
-                    var url = heatmap.getDataURL();
-                    downloadURI(url, "test.png");
-                }
-
-            };
-        </script>
-
 
         <script>(function() {
 
